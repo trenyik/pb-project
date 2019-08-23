@@ -32,12 +32,13 @@ end
 
 class Photos
 
-    def initialize(height, width, views, likes, user_id)
+    def initialize(height, width, views, likes, image_url, user_id)
         @height = height
         @width = width
         @view = views
         @likes = likes
         @id = nil
+        @image_url = image_url
         @user_id = user_id
     end
 
@@ -49,6 +50,7 @@ class Photos
             width INTEGER,
             views INTEGER,
             likes INTEGER,
+            image_url TEXT,
             user_id INTEGER
         )
         SQL
@@ -57,10 +59,10 @@ class Photos
 
     def save
         sql = <<-SQL
-        INSERT INTO users (height, width, views, likes, user_id)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO users (height, width, views, likes, image_url, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)
         SQL
-        DB[:conn].execute(sql, @height, @width, @view, @likes, @user_id)
+        DB[:conn].execute(sql, @height, @width, @view, @likes, @image_url, @user_id)
         @id =DB[:conn].execute("SELECT last_insert_rowid()FROM users")[0][0]
     end
 end
