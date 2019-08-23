@@ -6,5 +6,10 @@
 
     <body>
         <a href="/index">To Index</a>
+        <%@hits["hits"].each { |hit|%>
+            <%="<img src='#{hit["webformatURL"]}'>"%>
+        <%}%>
+
+        <img src='google.com'>
     </body>
 </html>
