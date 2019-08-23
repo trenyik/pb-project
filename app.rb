@@ -1,7 +1,16 @@
 class Application < Sinatra::Base
 
-    get '/'do
+    def initialize(app = nil)
+        super(app)
 
-    "Hello, World!"
-    end 
+    end
+
+    get '/index'do
+        erb :'/index'
+    end
+
+    get '/gallery' do
+        erb :'/gallery'
+    end
+
 end
