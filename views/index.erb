@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        <a href="/gallery">To Gallery</a>
+    <div class="navbar">
+        <a href="/gallery">Photo Gallery</a>
+        <a href="/gallery">Photographer</a>
+    
+    <div class="dropdown">
+    <button class="dropbtn">Gallery 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    
+    <div class="dropdown-content">
+      <a href="/gallery">ID</a>
+      <a href="/gallery">Name</a>
+      <a href="/gallery">Tags</a>
+    </div>
+  </div> 
+</div>
+        <%# <a href="/gallery">To Gallery</a> %>
+<form action="/gallery.erb">
+    Name: <input type="text" name="usrname" required>
+  <button type="submit">Create</button>
+  
+</form>
+<form>
+<input type="text" value="Tag1" />
+<input type="text" value="Tag2" />
+<input type="text" value="Tag3" />
+
+</form>
     </body>
 </html>
