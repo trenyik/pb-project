@@ -27,6 +27,7 @@ class Application < Sinatra::Base
     end
 
     get '/gallery' do
+        
         @hits = fetch("flowers+summer")
         if @hits["totalHits"] == 0
             @image_url = "No Results Found With Current Tags"
@@ -35,6 +36,11 @@ class Application < Sinatra::Base
         end
         erb :'/gallery'
 
+    end
+
+    post "/gallery" do
+        puts params["usrname"]
+        erb :'/index'
     end
 
     def fetch(tags)
