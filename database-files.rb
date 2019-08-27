@@ -1,8 +1,12 @@
+require 'sqlite3'
+
+DB = {:conn => SQLite3::Database.new("pixabay-db.db")}
+
 class Gallery
     @@galleries = []
 
     def initialize(id)
-        sql = <<- SQL
+        sql = <<-SQL
             SELECT photos.id 
             FROM photos 
             JOIN photos_to_galleries 
@@ -11,7 +15,7 @@ class Gallery
             ON galleries.id = photos_to_galleries.galleries_id
             WHERE photos_to_galleries.galleries_id = ?;
         SQL
-        @photos_id = DB[:conn].execute(sql, id)
+        @photos_id=DB[:conn].execute(sql, id)
         @@galleries << self
     end
 
